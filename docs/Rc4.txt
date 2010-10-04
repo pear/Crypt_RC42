@@ -1,0 +1,27 @@
+
+
+Intro
+------
+RC4 (or also known as ARCFOUR) is a symmetric key stream cipher designed by
+the RSA in 1987 by Ron Rivest. RC is an acronym for Ron's Code. The 4 is
+equal to his 4th algorithm.
+
+With symmetric key encryption the same key is used for encrypting and
+decrypting the message.
+
+RC4 is part of some commonly used encryption protocols and standards,
+including WEP and WPA for wireless cards and SSL.
+
+More information about RC4 can be obtained from the RSA website.
+http://www.rsasecurity.com/rsalabs/node.asp?id=2250
+
+Usage
+-----
+The use of the RC4 class is very simple. First you create an instance of the
+RC4 class.
+
+[CODE]
+$instance = new Crypt_Rc4;
+[/CODE]
+
+
