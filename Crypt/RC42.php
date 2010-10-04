@@ -24,7 +24,7 @@
  *
  * in PHP5(!) based on code written by Damien Miller <djm@mindrot.org>
  * This class <b>BREAKS COMPABILITY</b> with earlier PHP 4 versions of the RC4 class.
- * PHP 4 versions are available at http://pear.php.net/package/Crypt_RC4, download version 1.x
+ * PHP 4 versions are available at http://pear.php.net/package/Crypt_RC42, download version 1.x
  *
  *
  * Basic usage of this class
@@ -32,7 +32,7 @@
  * $key = "pear";
  * $message = "PEAR rulez!";
  *
- * $rc4 = new Crypt_Rc4;
+ * $rc4 = new Crypt_RC42();
  * $rc4->key($key);
  * echo "Original message: $message <br />\n";
  *
@@ -48,7 +48,7 @@
  * <code>
  * $origmessage = "PEAR Rulez!";
  *
- * $rc4 = new Crypt_Rc4("pear");
+ * $rc4 = new Crypt_RC42("pear");
  * $codedmessage = $rc4->encrypt($origmessage);
  * $safe_codedmessage = base64_encode($codedmessage);
  * echo "Encrypted message: $safe_codedmessage <br />\n";
@@ -65,31 +65,31 @@
  * @access public
  */
 
-final class Crypt_Rc4 {
+class Crypt_RC42 {
 
     /**
      * Contains salt key used by en(de)cryption function
      *
      * @var array
-     * @access private
+     * @access protected
      */
-    private $s= array();
+    protected $s= array();
 
     /**
      * First Part of encryption matrix
      *
      * @var array
-     * @access private
+     * @access protected
      */
-    private $i= 0;
+    protected $i= 0;
 
     /**
      * Second part of encryption matrix
      *
      * @var array
-     * @access private
+     * @access protected
      */
-    private $j= 0;
+    protected $j= 0;
 
     /**
      * symmetric key used for encryption.
@@ -97,7 +97,7 @@ final class Crypt_Rc4 {
      * @var string
      * @access public
      */
-    private $key;    //variable itself is private, but is made accessibly using __get and __set method
+    protected $key;    //variable itself is protected, but is made accessibly using __get and __set method
 
     /**
      * Constructor for encryption class
@@ -164,7 +164,7 @@ final class Crypt_Rc4 {
      *
      * @param string $property Only property 'key' is supported
      * @return string Enecryption key
-     * @access private
+     * @access protected
      */
     public function __get($property)
     {
@@ -181,7 +181,7 @@ final class Crypt_Rc4 {
      * @param string $property Only property 'key' is supported
      * @param string $value Value for property
      * @return void
-     * @access private
+     * @access protected
      */
     public function __set($property, $value)
     {
@@ -200,9 +200,9 @@ final class Crypt_Rc4 {
      *
      * @param  string $paramstr string that will encrypted
      * @return Encrypted or decrypted message
-     * @access private
+     * @access protected
      */
-    private function _crypt($paramstr)
+    protected function _crypt($paramstr)
     {
         //Init key for every call, Bugfix for PHP issue #22316
         $temp_matrix = $this->s;
@@ -236,10 +236,10 @@ final class Crypt_Rc4 {
      *
      * @param  string $key key which will be used for encryption
      * @return void
-     * @access private
+     * @access protected
      * @todo   Implement error handling!
      */
-    private function _initializeKey($key)
+    protected function _initializeKey($key)
     {
         //better string validation
         if ( is_string($key) && strlen($key) > 0 ) {
