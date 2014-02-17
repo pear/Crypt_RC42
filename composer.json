@@ -1,0 +1,31 @@
+{
+    "authors": [
+        {
+            "email": "zyprexia@php.net",
+            "name": "Dave Mertens",
+            "role": "Lead"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Crypt_RC42": "./"
+        }
+    },
+    "description": "More info available on: http://pear.php.net/package/Crypt_RC42",
+    "include-path": [
+        "./"
+    ],
+    "license": "PHP",
+    "name": "pear/crypt_rc42",
+    "support": {
+        "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=Crypt_RC42",
+        "source": "https://github.com/pear/Crypt_RC42"
+    },
+    "type": "library",
+    "require": {
+        "pear/pear_exception": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    }
+}
